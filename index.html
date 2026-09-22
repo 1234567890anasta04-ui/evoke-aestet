@@ -2,10 +2,15 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>EVOKE.AESTET — Студия авторской татуировки | Армавир</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVOKE.AESTET — Тату студия в Армавире</title>
   
+  <!-- Яндекс Вебмастер (подтверждение прав) -->
+  <meta name="yandex-verification" content="156fe3d3cc141a1e" />
+
+  <!-- Фирменная иконка во вкладке браузера -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230c0d0e'/><text x='50%' y='69%' font-size='60' font-family='serif' fill='%23f5f5f7' text-anchor='middle'>E</text></svg>">
+
   <meta name="description" content="Авторская татуировка в Армавире. Fine line, Cyber-sigilism, индивидуальные анатомические проекты." />
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,21 +38,43 @@
       padding: 0;
     }
 
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
+    html {
       scroll-behavior: smooth;
-      background-color: #0c0d0e;
-      background-image: 
-        radial-gradient(circle at center, rgba(12, 13, 14, 0.35) 0%, rgba(12, 13, 14, 0.88) 100%),
-        url('images/bg.jpg');
-      background-size: cover;
-      background-position: center 20%;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+    }
+
+    body {
+      background-color: var(--bg-color);
       color: var(--text-main);
       font-family: var(--font-body);
+      overflow-x: hidden;
       line-height: 1.5;
+    }
+
+    /* Фоновое видео */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.35) contrast(1.1);
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(12, 13, 14, 0.45) 0%, rgba(12, 13, 14, 0.98) 100%);
     }
 
     /* Меню навигации */
@@ -62,7 +89,7 @@
       z-index: 100;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(12, 13, 14, 0.7);
+      background: rgba(12, 13, 14, 0.6);
       border-bottom: 1px solid var(--border-glass);
     }
 
@@ -179,13 +206,12 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 130px 20px 80px;
+      padding: 140px 24px 80px;
       position: relative;
     }
 
     .hero-content {
       max-width: 840px;
-      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -195,7 +221,6 @@
     .badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
       padding: 6px 16px;
       border-radius: 99px;
@@ -206,9 +231,6 @@
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 24px;
-      max-width: 100%;
-      flex-wrap: wrap;
-      text-align: center;
     }
 
     .badge-city {
@@ -218,22 +240,19 @@
 
     .hero-title {
       font-family: var(--font-title);
-      font-size: clamp(2.1rem, 8.5vw, 5.5rem);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
       font-weight: 400;
-      letter-spacing: clamp(2px, 1.2vw, 6px);
-      line-height: 1.15;
-      margin-bottom: 18px;
-      width: 100%;
-      word-break: break-word;
+      letter-spacing: 6px;
+      line-height: 1.1;
+      margin-bottom: 20px;
     }
 
     .hero-subtitle {
-      font-size: clamp(0.85rem, 1.6vw, 1.15rem);
+      font-size: clamp(1rem, 2vw, 1.25rem);
       color: var(--text-muted);
-      letter-spacing: clamp(2px, 0.8vw, 4px);
-      text-transform: uppercase;
-      font-weight: 400;
-      margin-bottom: 38px;
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 40px;
     }
 
     .hero-actions {
@@ -241,7 +260,6 @@
       gap: 16px;
       flex-wrap: wrap;
       justify-content: center;
-      width: 100%;
     }
 
     /* Бегущая строка */
@@ -303,7 +321,7 @@
 
     .section-title {
       font-family: var(--font-title);
-      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
       letter-spacing: 4px;
       font-weight: 400;
     }
@@ -364,7 +382,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       display: none;
@@ -373,7 +391,6 @@
       z-index: 1000;
       cursor: zoom-out;
       opacity: 0;
-      padding: 20px;
       transition: opacity 0.3s ease;
     }
 
@@ -383,8 +400,8 @@
     }
 
     .lightbox img {
-      max-width: 94vw;
-      max-height: 84vh;
+      max-width: 90vw;
+      max-height: 85vh;
       border-radius: 8px;
       border: 1px solid var(--border-glass);
       box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
@@ -393,14 +410,12 @@
 
     .lightbox-close {
       position: absolute;
-      top: 24px;
-      right: 28px;
+      top: 30px;
+      right: 40px;
       color: #fff;
-      font-size: 2.4rem;
-      line-height: 1;
+      font-size: 2rem;
+      font-family: sans-serif;
       cursor: pointer;
-      padding: 8px;
-      user-select: none;
     }
 
     /* Блок: О мастере */
@@ -491,11 +506,11 @@
 
     .about-heading {
       font-family: var(--font-title);
-      font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       font-weight: 400;
       letter-spacing: 3px;
       margin-bottom: 18px;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     .about-description {
@@ -551,7 +566,7 @@
       line-height: 1.6;
     }
 
-    /* Блок: Отзывы */
+    /* Блок: Отзывы (с плашкой Яндекс Карт) */
     .reviews-section {
       max-width: 1360px;
       margin: 0 auto;
@@ -570,7 +585,6 @@
     .yandex-brand-badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 10px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glass);
@@ -579,8 +593,6 @@
       margin-bottom: 20px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      max-width: 100%;
-      flex-wrap: wrap;
     }
 
     .ya-logo-icon {
@@ -620,7 +632,7 @@
 
     .reviews-title {
       font-family: var(--font-title);
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-size: clamp(2rem, 3.5vw, 3rem);
       letter-spacing: 4px;
       font-weight: 400;
     }
@@ -722,10 +734,9 @@
     .footer {
       border-top: 1px solid var(--border-glass);
       padding: 100px 40px 30px;
-      background: linear-gradient(180deg, rgba(12, 13, 14, 0.88) 0%, #08090a 100%);
+      background: linear-gradient(180deg, rgba(12, 13, 14, 0.85) 0%, #08090a 100%);
       position: relative;
       overflow: hidden;
-      width: 100%;
     }
 
     .footer-container {
@@ -744,11 +755,10 @@
 
     .footer-brand h3 {
       font-family: var(--font-title);
-      font-size: 1.6rem;
-      letter-spacing: 2px;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
       font-weight: 400;
       margin-bottom: 16px;
-      line-height: 1.3;
     }
 
     .footer-brand p {
@@ -855,7 +865,6 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      min-width: 0;
     }
 
     .channel-icon-wrap {
@@ -867,7 +876,6 @@
       align-items: center;
       justify-content: center;
       border: 1px solid var(--border-glass);
-      flex-shrink: 0;
       transition: all 0.3s ease;
     }
 
@@ -887,7 +895,6 @@
       display: flex;
       flex-direction: column;
       gap: 3px;
-      min-width: 0;
     }
 
     .channel-name {
@@ -902,7 +909,6 @@
       gap: 6px;
       font-size: 0.75rem;
       color: #a0a0a5;
-      line-height: 1.2;
     }
 
     .status-dot-pulse {
@@ -911,15 +917,12 @@
       border-radius: 50%;
       background: var(--accent-green);
       box-shadow: 0 0 8px var(--accent-green);
-      flex-shrink: 0;
     }
 
     .channel-right {
       display: flex;
       align-items: center;
       color: var(--text-muted);
-      flex-shrink: 0;
-      margin-left: 12px;
       transition: transform 0.3s ease, color 0.3s ease;
     }
 
@@ -936,27 +939,20 @@
 
     .footer-giant-brand {
       position: relative;
-      margin: 80px auto 20px;
+      margin: 80px 0 20px;
       text-align: center;
       user-select: none;
       pointer-events: none;
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
     }
 
     .giant-watermark {
       font-family: var(--font-title);
-      font-size: clamp(2.2rem, 7.8vw, 8.5rem);
+      font-size: clamp(3.5rem, 12.5vw, 12rem);
       font-weight: 700;
-      letter-spacing: clamp(4px, 1.2vw, 14px);
+      letter-spacing: clamp(6px, 2vw, 24px);
       text-transform: uppercase;
-      line-height: 1;
+      line-height: 0.9;
       white-space: nowrap;
-      display: inline-block;
-      text-align: center;
-      box-sizing: border-box;
       color: transparent;
       -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.045);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
@@ -986,7 +982,7 @@
       font-size: 0.72rem;
     }
 
-    /* Адаптивность для планшетов */
+    /* Адаптивность */
     @media (max-width: 1024px) {
       .portfolio-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -999,13 +995,15 @@
       .about-image-card {
         min-height: 400px;
       }
+    }
+
+    @media (max-width: 960px) {
       .footer-top-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
     }
 
-    /* Адаптивность для смартфонов */
     @media (max-width: 768px) {
       .navbar {
         padding: 16px 20px;
@@ -1013,76 +1011,50 @@
       .nav-links, .nav-btn {
         display: none;
       }
-      .hero {
-        padding: 110px 16px 60px;
-      }
       .section, .about-section, .reviews-section {
-        padding: 50px 16px;
+        padding: 60px 16px;
       }
       .principles-grid {
         grid-template-columns: 1fr;
+      }
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 210px;
         gap: 12px;
       }
-
-      .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-auto-rows: auto !important;
-        grid-auto-flow: row !important;
-        gap: 12px !important;
-      }
-
-      .portfolio-card,
-      .portfolio-card.tall,
       .portfolio-card.wide {
-        grid-row: span 1 !important;
-        grid-column: span 1 !important;
-        aspect-ratio: 3 / 4 !important;
-        height: auto !important;
+        grid-column: span 2;
       }
-
       .reviews-grid {
         grid-template-columns: 1fr;
         gap: 16px;
       }
       .form-card {
-        padding: 26px 18px;
+        padding: 28px 20px;
       }
       .footer {
-        padding: 50px 16px 24px;
-        overflow: hidden;
+        padding: 60px 20px 24px;
       }
-
       .footer-giant-brand {
-        margin: 30px auto 14px !important;
-        width: 100% !important;
-        overflow: hidden !important;
+        margin: 40px 0 10px;
       }
-      .giant-watermark {
-        font-size: clamp(1.3rem, 6.2vw, 2.1rem) !important;
-        letter-spacing: 0.12em !important;
-        display: inline-block !important;
-        white-space: nowrap !important;
-      }
-
       .footer-bottom-bar {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         text-align: center;
-      }
-
-      .channel-card {
-        padding: 14px 16px;
-      }
-      .channel-name {
-        font-size: 0.95rem;
-      }
-      .channel-status {
-        font-size: 0.72rem;
       }
     }
   </style>
 </head>
 <body>
+
+  <!-- Фон -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1920&q=80">
+      <source src="https://assets.mixkit.co/videos/preview/mixkit-fluid-smoke-or-ink-in-water-43338-large.mp4" type="video/mp4" />
+    </video>
+    <div class="overlay"></div>
+  </div>
 
   <!-- Шапка -->
   <header class="navbar">
@@ -1109,7 +1081,10 @@
         <span class="badge-city">Армавир</span>
       </div>
       <h1 class="hero-title">EVOKE.AESTET</h1>
-      <p class="hero-subtitle">СТУДИЯ АВТОРСКОЙ ТАТУИРОВКИ</p>
+      <p class="hero-subtitle">
+        Fine line & Cyber-sigilism.<br>
+        Авторские проекты, подчёркивающие вашу анатомию.
+      </p>
 
       <div class="hero-actions">
         <a href="#booking" class="btn btn-primary">Рассчитать стоимость</a>
