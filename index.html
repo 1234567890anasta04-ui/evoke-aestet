@@ -62,7 +62,7 @@
       display: block;
     }
 
-    /* Фоновое изображение со спиной (исправлены z-index и видимость) */
+    /* Фоновое изображение со спиной для ПК */
     .bg-fixed-artwork {
       position: fixed;
       top: 0;
@@ -93,7 +93,7 @@
       background: radial-gradient(circle at 50% 32%, rgba(12, 13, 14, 0.25) 0%, rgba(12, 13, 14, 0.92) 100%);
     }
 
-    /* Подъем всего контента поверх фонового слоя */
+    /* Подъем контента поверх фиксированного фона */
     .navbar,
     .hero-section,
     .marquee-container,
@@ -693,7 +693,7 @@
       font-size: 0.92rem;
     }
 
-    /* Контакты и Футер */
+    /* Контакты */
     .contacts-section {
       max-width: 1240px;
       margin: 0 auto;
@@ -785,7 +785,7 @@
       font-size: 1.1rem;
     }
 
-    /* Адаптивный гигантский логотип */
+    /* Адаптивный водяной знак бренда в подвале */
     .footer-giant-brand {
       position: relative;
       margin: 60px 0 20px;
@@ -855,7 +855,7 @@
       object-fit: contain;
     }
 
-    /* Мобильная адаптация */
+    /* Планшетная адаптация (до 900px) */
     @media (max-width: 900px) {
       .navbar {
         padding: 16px 20px;
@@ -876,7 +876,25 @@
       }
     }
 
+    /* Смартфоны (до 768px): исправленный вид фона и идеальная верстка */
     @media (max-width: 768px) {
+      /* Коррекция фонового изображения: убираем растяжение и серую муть */
+      .bg-fixed-artwork {
+        height: 100vh;
+      }
+
+      .bg-fixed-artwork img {
+        object-fit: contain !important;
+        object-position: center 38% !important;
+        width: 100% !important;
+        height: 85% !important;
+        opacity: 0.55 !important;
+      }
+
+      .bg-fixed-overlay {
+        background: radial-gradient(circle at 50% 40%, rgba(12, 13, 14, 0.15) 0%, rgba(12, 13, 14, 0.95) 85%) !important;
+      }
+
       .hero-section {
         padding: 120px 20px 60px;
       }
@@ -894,7 +912,7 @@
         padding: 60px 16px;
       }
 
-      /* Сетка портфолио без пробелов */
+      /* Сетка каталога 2x2 без пустот */
       .portfolio-grid {
         grid-template-columns: repeat(2, 1fr) !important;
         grid-auto-rows: auto !important;
@@ -1088,7 +1106,7 @@
       </div>
     </div>
 
-    <!-- 6 скриншотов отзывов -->
+    <!-- 6 отзывов -->
     <div class="reviews-grid">
       <div class="review-card"><img src="images/review1.jpg" alt="Отзыв о студии татуировки EVOKE.AESTET" loading="lazy" /></div>
       <div class="review-card"><img src="images/review2.jpg" alt="Отзыв о студии татуировки EVOKE.AESTET" loading="lazy" /></div>
