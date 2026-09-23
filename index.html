@@ -61,8 +61,8 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      opacity: 0.55;
-      filter: contrast(1.1);
+      opacity: 0.85;
+      filter: contrast(1.15) brightness(0.95);
       display: block;
     }
 
@@ -72,7 +72,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at center, rgba(12, 13, 14, 0.35) 0%, rgba(12, 13, 14, 0.95) 100%);
+      background: linear-gradient(180deg, rgba(12, 13, 14, 0.45) 0%, rgba(12, 13, 14, 0.7) 50%, rgba(12, 13, 14, 0.98) 100%);
     }
 
     /* Меню навигации */
@@ -87,7 +87,7 @@
       z-index: 100;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(12, 13, 14, 0.7);
+      background: rgba(12, 13, 14, 0.75);
       border-bottom: 1px solid var(--border-glass);
     }
 
@@ -166,6 +166,7 @@
     .btn-outline:hover {
       border-color: rgba(255, 255, 255, 0.3);
       background: rgba(255, 255, 255, 0.08);
+      color: #fff;
     }
 
     .btn-glass {
@@ -339,6 +340,7 @@
       margin-top: 12px;
     }
 
+    /* Каталог */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -576,20 +578,25 @@
       line-height: 1.6;
     }
 
-    /* Отзывы */
+    /* Блок: Отзывы и Репутация */
     .reviews-section {
-      max-width: 1360px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 80px 40px 100px;
-      position: relative;
+      padding: 80px 24px 100px;
+      text-align: center;
     }
 
-    .reviews-header {
-      text-align: center;
-      margin-bottom: 50px;
+    .reputation-card {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      border-radius: 24px;
+      padding: 48px 32px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       display: flex;
       flex-direction: column;
       align-items: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
     }
 
     .yandex-brand-badge {
@@ -599,13 +606,11 @@
       gap: 10px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-glass);
-      padding: 8px 20px;
+      padding: 8px 22px;
       border-radius: 99px;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      max-width: 100%;
-      flex-wrap: wrap;
     }
 
     .ya-logo-icon {
@@ -645,44 +650,18 @@
 
     .reviews-title {
       font-family: var(--font-title);
-      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
       letter-spacing: 4px;
       font-weight: 400;
+      margin-bottom: 14px;
     }
 
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
-    }
-
-    .review-card {
-      background: var(--bg-glass);
-      border: 1px solid var(--border-glass);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      cursor: zoom-in;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
-    }
-
-    .review-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .review-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      object-fit: cover;
+    .reviews-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
     }
 
     /* Форма записи */
@@ -1011,7 +990,7 @@
       font-size: 0.72rem;
     }
 
-    /* Адаптив планшеты */
+    /* Адаптив для планшетов */
     @media (max-width: 1024px) {
       .portfolio-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1030,7 +1009,7 @@
       }
     }
 
-    /* Адаптив мобильные */
+    /* Адаптив для мобильных устройств */
     @media (max-width: 768px) {
       .navbar {
         padding: 16px 20px;
@@ -1065,10 +1044,10 @@
         height: auto !important;
       }
 
-      .reviews-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+      .reputation-card {
+        padding: 32px 18px;
       }
+
       .form-card {
         padding: 26px 18px;
       }
@@ -1109,7 +1088,7 @@
 </head>
 <body>
 
-  <!-- Локальный фон -->
+  <!-- Фон -->
   <div class="bg-image-fixed">
     <img src="images/bg.jpg" alt="Фон EVOKE.AESTET" />
     <div class="overlay"></div>
@@ -1167,7 +1146,7 @@
     </div>
   </div>
 
-  <!-- Каталог работ (12 фото с точными именами и расширениями из вашей папки images) -->
+  <!-- Каталог работ (12 фото с точными именами и ленивой загрузкой) -->
   <section class="section" id="portfolio">
     <div class="section-header">
       <span class="section-tag">Портфолио</span>
@@ -1176,18 +1155,18 @@
     </div>
 
     <div class="portfolio-grid">
-      <div class="portfolio-card tall"><img src="images/IMG_2561.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/IMG_3439.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card wide"><img src="images/IMG_3445.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/IMG_4300.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/IMG_4325.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card tall"><img src="images/IMG_4329.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/IMG_4871.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card wide"><img src="images/IMG_8480.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/Photoroom_20250511_162642.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/Photoroom_20251101_164923.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card tall"><img src="images/IMG_2561.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/IMG_3445.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card tall"><img src="images/IMG_2561.jpg" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card"><img src="images/IMG_3439.JPG" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card wide"><img src="images/IMG_3445.jpg" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card"><img src="images/IMG_4300.JPG" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card"><img src="images/IMG_4325.JPG" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card tall"><img src="images/IMG_4329.jpg" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card"><img src="images/IMG_4871.JPG" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card wide"><img src="images/IMG_8480.JPG" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card"><img src="images/Photoroom_20250511_162642.JPG" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card"><img src="images/Photoroom_20251101_164923.jpg" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card tall"><img src="images/IMG_2561.jpg" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
+      <div class="portfolio-card"><img src="images/IMG_3445.jpg" alt="Тату EVOKE.AESTET Армавир" loading="lazy" /></div>
     </div>
   </section>
 
@@ -1196,7 +1175,7 @@
     <div class="about-grid">
       
       <div class="about-image-card">
-        <img src="images/IMG_3445.jpg" alt="Процесс нанесения татуировки" />
+        <img src="images/IMG_3445.jpg" alt="Процесс нанесения татуировки" loading="lazy" />
         <div class="about-badge-bottom">
           <div>
             <div class="about-badge-title">EVOKE.AESTET</div>
@@ -1245,25 +1224,22 @@
     </div>
   </section>
 
-  <!-- Отзывы (точный путь к вашим файлам) -->
+  <!-- Блок: Репутация & Отзывы (без тяжелых картинок) -->
   <section class="reviews-section" id="reviews">
-    <div class="reviews-header">
+    <div class="reputation-card">
       <div class="yandex-brand-badge">
         <span class="ya-logo-icon">Я</span>
         <span class="ya-brand-text">Яндекс Карты</span>
         <span class="ya-stars">★★★★★</span>
         <span class="ya-score">5.0</span>
       </div>
-      <h2 class="reviews-title">ОТЗЫВЫ КЛИЕНТОВ</h2>
-    </div>
-
-    <div class="reviews-grid">
-      <div class="review-card"><img src="images/review1.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="images/review2.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="images/review3.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="images/review4.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="images/review5.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="images/review6.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
+      <h2 class="reviews-title">РЕПУТАЦИЯ & ОТЗЫВЫ</h2>
+      <p class="reviews-desc">
+        Безупречное качество линий, стерильность и индивидуальный подход подтверждены оценками клиентов на Яндекс Картах.
+      </p>
+      <a href="https://yandex.ru/maps" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        Читать отзывы на Яндекс Картах ↗
+      </a>
     </div>
   </section>
 
@@ -1406,7 +1382,7 @@
   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    const zoomableImages = document.querySelectorAll('.portfolio-card img, .review-card img');
+    const zoomableImages = document.querySelectorAll('.portfolio-card img, .about-image-card img');
 
     zoomableImages.forEach(img => {
       img.addEventListener('click', () => {
