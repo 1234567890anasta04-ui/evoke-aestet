@@ -23,7 +23,6 @@
       --accent-red-hover: #e03131;
       --accent-green: #2ecc71;
       
-      /* Автономные системные шрифты (без внешних серверов) */
       --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --font-title: "Times New Roman", Times, Georgia, "Baskerville", serif;
     }
@@ -44,7 +43,7 @@
       line-height: 1.5;
     }
 
-    /* Локальный фон */
+    /* Фоновое изображение */
     .bg-image-fixed {
       position: fixed;
       top: 0;
@@ -62,8 +61,8 @@
       height: 100%;
       object-fit: cover;
       object-position: center top;
-      opacity: 0.22;
-      filter: grayscale(100%) contrast(1.15);
+      opacity: 0.55;
+      filter: contrast(1.1);
       display: block;
     }
 
@@ -76,7 +75,7 @@
       background: radial-gradient(circle at center, rgba(12, 13, 14, 0.35) 0%, rgba(12, 13, 14, 0.95) 100%);
     }
 
-    /* Шапка / Навигация */
+    /* Меню навигации */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -304,7 +303,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Каталог */
+    /* Секции */
     .section {
       padding: 100px 40px;
       max-width: 1440px;
@@ -1031,7 +1030,7 @@
       }
     }
 
-    /* Адаптив смартфоны */
+    /* Адаптив мобильные */
     @media (max-width: 768px) {
       .navbar {
         padding: 16px 20px;
@@ -1168,7 +1167,7 @@
     </div>
   </div>
 
-  <!-- Каталог работ (12 фото) -->
+  <!-- Каталог работ (12 фото с точными именами и расширениями из вашей папки images) -->
   <section class="section" id="portfolio">
     <div class="section-header">
       <span class="section-tag">Портфолио</span>
@@ -1177,18 +1176,18 @@
     </div>
 
     <div class="portfolio-grid">
-      <div class="portfolio-card tall"><img src="images/work1.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/work2.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card wide"><img src="images/work3.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/work4.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/work5.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card tall"><img src="images/work6.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/work7.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card wide"><img src="images/work8.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/work9.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/work10.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card tall"><img src="images/work11.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
-      <div class="portfolio-card"><img src="images/work12.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card tall"><img src="images/IMG_2561.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card"><img src="images/IMG_3439.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card wide"><img src="images/IMG_3445.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card"><img src="images/IMG_4300.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card"><img src="images/IMG_4325.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card tall"><img src="images/IMG_4329.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card"><img src="images/IMG_4871.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card wide"><img src="images/IMG_8480.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card"><img src="images/Photoroom_20250511_162642.JPG" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card"><img src="images/Photoroom_20251101_164923.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card tall"><img src="images/IMG_2561.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
+      <div class="portfolio-card"><img src="images/IMG_3445.jpg" alt="Тату EVOKE.AESTET Армавир" /></div>
     </div>
   </section>
 
@@ -1197,7 +1196,7 @@
     <div class="about-grid">
       
       <div class="about-image-card">
-        <img src="images/work2.jpg" alt="Процесс нанесения татуировки" />
+        <img src="images/IMG_3445.jpg" alt="Процесс нанесения татуировки" />
         <div class="about-badge-bottom">
           <div>
             <div class="about-badge-title">EVOKE.AESTET</div>
@@ -1246,7 +1245,7 @@
     </div>
   </section>
 
-  <!-- Отзывы -->
+  <!-- Отзывы (точный путь к вашим файлам) -->
   <section class="reviews-section" id="reviews">
     <div class="reviews-header">
       <div class="yandex-brand-badge">
@@ -1304,7 +1303,7 @@
     </div>
   </section>
 
-  <!-- Подвал сайта -->
+  <!-- Подвал -->
   <footer class="footer" id="contacts">
     <div class="footer-container">
       <div class="footer-top-grid">
