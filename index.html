@@ -705,6 +705,7 @@
       border: 1px solid var(--border-glass);
       border-radius: 12px;
       transition: var(--transition);
+      text-decoration: none;
     }
 
     .social-link-item:hover {
@@ -730,9 +731,20 @@
       margin-top: 2px;
     }
 
+    /* Фиксация цвета стрелок от синего окрашивания iOS */
     .social-arrow {
-      color: var(--text-muted);
+      color: var(--text-muted) !important;
+      -webkit-text-fill-color: var(--text-muted) !important;
       font-size: 1.1rem;
+      text-decoration: none !important;
+      transition: var(--transition);
+      display: inline-block;
+      line-height: 1;
+    }
+
+    .social-link-item:hover .social-arrow {
+      color: var(--text-main) !important;
+      -webkit-text-fill-color: var(--text-main) !important;
     }
 
     /* Адаптивный водяной знак бренда в подвале */
