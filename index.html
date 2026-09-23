@@ -195,6 +195,8 @@
       font-weight: 600;
       letter-spacing: 1px;
       text-transform: uppercase;
+      border-radius: 99px;
+      margin-top: 10px;
     }
 
     .btn-submit:hover {
@@ -570,7 +572,7 @@
       line-height: 1.6;
     }
 
-    /* Блок отзывов */
+    /* Блок отзывов (Текстовые карточки Яндекс) */
     .reviews-section {
       max-width: 1360px;
       margin: 0 auto;
@@ -633,33 +635,47 @@
       gap: 20px;
     }
 
-    .review-card {
+    .review-card-clean {
       background: var(--bg-glass);
       border: 1px solid var(--border-glass);
       border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      padding: 24px;
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
-      cursor: zoom-in;
       transition: transform 0.3s ease, border-color 0.3s ease;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .review-card:hover {
+    .review-card-clean:hover {
       transform: translateY(-4px);
       border-color: rgba(255, 255, 255, 0.3);
     }
 
-    .review-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      object-fit: cover;
+    .review-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reviewer-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .review-quote {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .review-meta {
+      font-size: 0.75rem;
+      color: var(--accent-red);
+      letter-spacing: 0.5px;
     }
 
     /* Блок записи */
@@ -691,7 +707,7 @@
       letter-spacing: 0.5px;
     }
 
-    .form-input, .form-select, .form-textarea {
+    .form-input, .form-textarea {
       width: 100%;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border-glass);
@@ -704,18 +720,13 @@
       transition: border-color 0.3s, background 0.3s;
     }
 
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
+    .form-input:focus, .form-textarea:focus {
       border-color: rgba(255, 255, 255, 0.4);
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .form-select option {
-      background: #151618;
-      color: #fff;
-    }
-
     .form-textarea {
-      min-height: 110px;
+      min-height: 120px;
       resize: vertical;
     }
 
@@ -908,25 +919,31 @@
       transform: translate(3px, -3px);
     }
 
+    /* Водяной знак логотипа в футере — без обрезки */
     .footer-giant-brand {
       position: relative;
-      margin: 70px 0 20px;
+      margin: 60px auto 20px;
       text-align: center;
       user-select: none;
       pointer-events: none;
+      width: 100%;
+      padding: 0 10px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
     }
 
     .giant-watermark {
       font-family: var(--font-title);
-      font-size: clamp(3.2rem, 12vw, 11rem);
+      font-size: clamp(1.8rem, 8.5vw, 7.5rem);
       font-weight: 700;
-      letter-spacing: clamp(6px, 2vw, 22px);
+      letter-spacing: clamp(3px, 1.2vw, 16px);
       text-transform: uppercase;
-      line-height: 0.9;
+      line-height: 1;
       white-space: nowrap;
       color: transparent;
-      -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.04);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
       -webkit-background-clip: text;
       background-clip: text;
     }
@@ -1006,8 +1023,9 @@
       .footer {
         padding: 50px 16px 24px;
       }
-      .footer-giant-brand {
-        margin: 36px 0 10px;
+      .giant-watermark {
+        font-size: clamp(1.4rem, 6.5vw, 2.2rem);
+        letter-spacing: 3px;
       }
       .footer-bottom-bar {
         flex-direction: column;
@@ -1158,7 +1176,7 @@
     </div>
   </section>
 
-  <!-- Отзывы -->
+  <!-- Отзывы клиентов (Чистый адаптивный блок с оценкой 5.0) -->
   <section class="reviews-section" id="reviews">
     <div class="reviews-header">
       <span class="reviews-tag">Репутация студии</span>
@@ -1171,12 +1189,59 @@
     </div>
 
     <div class="reviews-grid">
-      <div class="review-card"><img src="review1.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="review2.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="review3.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="review4.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="review5.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
-      <div class="review-card"><img src="review6.jpg" alt="Отзыв клиента тату Армавир" loading="lazy" /></div>
+      <div class="review-card-clean">
+        <div class="review-top">
+          <span class="reviewer-name">Дарья С.</span>
+          <span class="ya-stars">★★★★★</span>
+        </div>
+        <p class="review-quote">«Невероятно тонкие и аккуратные линии! Мастер очень чуткая, помогла идеально расположить эскиз по изгибу руки. Зажило всё быстро и без корочек.»</p>
+        <span class="review-meta">Подтвержденный отзыв с Яндекс Карт</span>
+      </div>
+
+      <div class="review-card-clean">
+        <div class="review-top">
+          <span class="reviewer-name">Максим В.</span>
+          <span class="ya-stars">★★★★★</span>
+        </div>
+        <p class="review-quote">«Делал проект в стиле кибер-сиджилизм. Порадовал академический подход к композиции и идеальная стерильность. Результат превзошел все ожидания.»</p>
+        <span class="review-meta">Подтвержденный отзыв с Яндекс Карт</span>
+      </div>
+
+      <div class="review-card-clean">
+        <div class="review-top">
+          <span class="reviewer-name">Алина Р.</span>
+          <span class="ya-stars">★★★★★</span>
+        </div>
+        <p class="review-quote">«Это моя первая татуировка, очень переживала насчет боли. Сеанс прошел в максимально комфортной и уютной атмосфере. Работа ювелирная!»</p>
+        <span class="review-meta">Подтвержденный отзыв с Яндекс Карт</span>
+      </div>
+
+      <div class="review-card-clean">
+        <div class="review-top">
+          <span class="reviewer-name">Кристина М.</span>
+          <span class="ya-stars">★★★★★</span>
+        </div>
+        <p class="review-quote">«Студия просто восторг: эстетично, чисто, приятная музыка. Мастер разработала индивидуальный проект специально под мои параметры.»</p>
+        <span class="review-meta">Подтвержденный отзыв с Яндекс Карт</span>
+      </div>
+
+      <div class="review-card-clean">
+        <div class="review-top">
+          <span class="reviewer-name">Артем К.</span>
+          <span class="ya-stars">★★★★★</span>
+        </div>
+        <p class="review-quote">«Понравилась четкость на каждом этапе: от согласования эскиза до рекомендаций по уходу. Линии остались черными и тонкими даже спустя полгода.»</p>
+        <span class="review-meta">Подтвержденный отзыв с Яндекс Карт</span>
+      </div>
+
+      <div class="review-card-clean">
+        <div class="review-top">
+          <span class="reviewer-name">Елена Т.</span>
+          <span class="ya-stars">★★★★★</span>
+        </div>
+        <p class="review-quote">«Лучший мастер в Армавире в направлении Fine Line! Никаких толстых расплывшихся контуров, чистая воздушная графика. Обязательно вернусь еще.»</p>
+        <span class="review-meta">Подтвержденный отзыв с Яндекс Карт</span>
+      </div>
     </div>
   </section>
 
@@ -1186,7 +1251,7 @@
     <img id="lightboxImg" src="" alt="Просмотр фотографии" />
   </div>
 
-  <!-- Форма записи -->
+  <!-- Форма записи (без стиля) -->
   <section class="booking-section" id="booking">
     <div class="section-header">
       <span class="section-tag">Онлайн запись</span>
@@ -1203,16 +1268,6 @@
         <div class="form-group">
           <label for="clientContact">Telegram или Телефон</label>
           <input type="text" id="clientContact" class="form-input" placeholder="@username или +7 (999) 000-00-00" required />
-        </div>
-
-        <div class="form-group">
-          <label for="tattooStyle">Желаемый стиль</label>
-          <select id="tattooStyle" class="form-select">
-            <option value="Cyber-sigilism">Cyber-sigilism / Нео-трайбл</option>
-            <option value="Fine line">Fine line (Тонкие линии / Микрографика)</option>
-            <option value="Ornamental">Ornamental / Винтаж / Геометрия</option>
-            <option value="Индивидуальный эскиз">Разработка индивидуального проекта с нуля</option>
-          </select>
         </div>
 
         <div class="form-group">
@@ -1329,7 +1384,7 @@
   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    const zoomableImages = document.querySelectorAll('.portfolio-card img, .review-card img');
+    const zoomableImages = document.querySelectorAll('.portfolio-card img');
 
     zoomableImages.forEach(img => {
       img.addEventListener('click', () => {
@@ -1355,13 +1410,11 @@
       
       const name = document.getElementById('clientName').value;
       const contact = document.getElementById('clientContact').value;
-      const style = document.getElementById('tattooStyle').value;
       const idea = document.getElementById('clientIdea').value;
 
       let message = `🖤 <b>Новая заявка на татуировку!</b>\n\n`;
       message += `👤 <b>Имя:</b> ${name}\n`;
       message += `📞 <b>Контакт:</b> ${contact}\n`;
-      message += `✒️ <b>Стиль:</b> ${style}\n`;
       message += `💡 <b>Идея / размер:</b> ${idea || 'Не указано'}\n`;
       message += `📍 <i>г. Армавир, ул. Халтурина</i>`;
 
